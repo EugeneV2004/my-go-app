@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    runs-on: linux-build-deploy-runner  #ubuntu-latest
+    runs-on: [self-hosted, linux-build-deploy-runner, Linux]  #ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -17,7 +17,7 @@ jobs:
   deploy:
     needs: test
     if: github.ref == 'refs/heads/main'  # Деплоим только из main
-    runs-on: linux-build-deploy-runner  #ubuntu-latest
+    runs-on: [self-hosted, linux-build-deploy-runner, Linux] #linux-build-deploy-runner  #ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
