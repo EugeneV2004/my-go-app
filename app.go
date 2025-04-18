@@ -9,7 +9,7 @@ import (
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "<h1>Hello, 世界</h1>")
 
-	fmt.Fprintf(w, `<img src="/static/image.jpg" alt="Картинка" style="width:300px;">`)
+	fmt.Fprintf(w, `<img src="/static/image.jpg" alt="Картинка" style="width:700px;">`)
 }
 
 func main() {
