@@ -9,6 +9,9 @@ import (
 var visitCount int
 
 func handler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path == "/favicon.ico" {
+		return // Пропускаем
+	}
 	visitCount++
 	fmt.Fprintln(w, "<h1>Hello, 世界</h1>")
 	fmt.Fprintf(w, "<p>Посетителей: %d</p>", visitCount)
