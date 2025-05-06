@@ -6,10 +6,17 @@ import (
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "<h1>Hello, 世界</h1>")
+var visitCount int
 
-	fmt.Fprintf(w, `<img src="/static/image.jpg" alt="Картинка" style="width:700px;">`)
+func handler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path == "/favicon.ico" {
+		return // Пропускаем
+	}
+	visitCount++
+	fmt.Fprintln(w, "<h1>Hello, 世界</h1>")
+	fmt.Fprintf(w, "<p>Посетителей: %d</p>", visitCount)
+
+	fmt.Fprintf(w, `<img src="/static/image.jpg" alt="Картинка" style="width:500px;">`)
 }
 
 func main() {
