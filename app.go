@@ -6,8 +6,12 @@ import (
 	"net/http"
 )
 
+var visitCount int
+
 func handler(w http.ResponseWriter, r *http.Request) {
+	visitCount++
 	fmt.Fprintln(w, "<h1>Hello, 世界</h1>")
+	fmt.Fprintf(w, "<p>Посетителей: %d</p>", visitCount)
 
 	fmt.Fprintf(w, `<img src="/static/image.jpg" alt="Картинка" style="width:700px;">`)
 }
