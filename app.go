@@ -13,7 +13,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "<h1>Hello, 世界</h1>")
 	fmt.Fprintf(w, "<p>Посетителей: %d</p>", visitCount)
 
-	fmt.Fprintf(w, `<img src="/static/image.jpg" alt="Картинка" style="width:700px;">`)
+	fmt.Fprintf(w, `<img src="/static/image.jpg" alt="Картинка" style="width:500px;">`)
 }
 
 func main() {
