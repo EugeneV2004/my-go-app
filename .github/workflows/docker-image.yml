@@ -2,7 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main", "develop", "feature/**" ]  # Автоматически ловит ВСЕ feature-ветки
+  pull_request:
+    branches: [ "main", "develop" ]  # Проверяем PR в main и develop
 
 jobs:
   test:
